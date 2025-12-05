@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chief's Official Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #D4AF37;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%23D4AF37" opacity="0.1"/></svg>');
+            animation: sparkle 20s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        section:nth-child(odd) {
+            background: #fff;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #D4AF37, #FFD700);
+        }
+
+        .content-box {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #D4AF37, #000);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        /* Updates Section */
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .update-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #D4AF37;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .update-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .update-card h3 {
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+
+        .update-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cultural Section */
+        .cultural-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cultural-item {
+            background: linear-gradient(135deg, #000, #1a1a1a);
+            color: #D4AF37;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .cultural-item:hover {
+            transform: scale(1.05);
+        }
+
+        .cultural-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Interviews Section */
+        .interviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .interview-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .interview-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #000, #D4AF37);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 3rem;
+        }
+
+        .interview-info {
+            padding: 1.5rem;
+        }
+
+        .interview-info h3 {
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .interview-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .watch-btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: #D4AF37;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .watch-btn:hover {
+            background: #FFD700;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #000, #1a1a1a);
+            color: #D4AF37;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #D4AF37;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .interviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#updates">Updates</a></li>
+            <li><a href="#culture">Culture</a></li>
+            <li><a href="#interviews">Interviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to my page</h1>
+            <p>Preserving Heritage | Leading with Wisdom | Building Community</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="content-box">
+            <h2>About The Mantse</h2>
+            <div class="about-content">
+               <div class="about-image">
+    <img src="chief-photo.jpg" alt="Chief's Photo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+</div>
+                <div class="about-text">
+                    <p>Our esteemed traditional leader serves as the custodian of our rich cultural heritage and the bridge between our ancestral traditions and modern progress.</p>
+                    <p>With decades of service to our community, the Chief has been instrumental in preserving our cultural identity while leading initiatives that bring development and prosperity to our people.</p>
+                    <p>Through wisdom, compassion, and dedication, our Chief continues to guide our community toward a brighter future while honoring the legacy of those who came before.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="updates">
+        <div class="content-box">
+            <h2>Community Updates</h2>
+            <div class="updates-grid">
+                <div class="update-card">
+                    <div class="update-date">December 2024</div>
+                    <h3>Annual Festival Celebration</h3>
+                    <p>Join us for our grand annual festival celebrating our cultural heritage with traditional dances, ceremonies, and community gatherings.</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-date">November 2024</div>
+                    <h3>Youth Education Initiative</h3>
+                    <p>New scholarship program launched to support educational advancement for young members of our community.</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-date">October 2024</div>
+                    <h3>Infrastructure Development</h3>
+                    <p>Groundbreaking ceremony held for new community center that will serve as a hub for cultural activities and gatherings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture">
+        <div class="content-box">
+            <h2>Cultural Preservation</h2>
+            <div class="cultural-grid">
+                <div class="cultural-item">
+                    <h3>⚜️</h3>
+                    <h3>Traditional Ceremonies</h3>
+                    <p>Maintaining sacred rituals passed down through generations</p>
+                </div>
+                <div class="cultural-item">
+                    <h3>📚</h3>
+                    <h3>Oral History</h3>
+                    <p>Preserving stories and wisdom of our ancestors</p>
+                </div>
+                <div class="cultural-item">
+                    <h3>🎭</h3>
+                    <h3>Arts & Crafts</h3>
+                    <p>Keeping traditional art forms alive for future generations</p>
+                </div>
+                <div class="cultural-item">
+                    <h3>🥁</h3>
+                    <h3>Music & Dance</h3>
+                    <p>Celebrating through traditional performances</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interviews">
+        <div class="content-box">
+            <h2>Interviews & Media</h2>
+            <div class="interviews-grid">
+                <div class="interview-card">
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/2GATvX1UXto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px 10px 0 0;"></iframe>
+    <div class="interview-info">
+        <h3>Leadership in Modern Times</h3>
+        <p>A conversation about balancing tradition with progress</p>
+        <a href="https://youtu.be/2GATvX1UXto" target="_blank" class="watch-btn">Watch on YouTube</a>
+    </div>
+</div>
+                <div class="interview-card">
+                    <div class="video-placeholder">▶️</div>
+                    <div class="interview-info">
+                        <h3>Cultural Heritage Spotlight</h3>
+                        <p>Discussing the importance of preserving our traditions</p>
+                        <a href="#" class="watch-btn">Watch Interview</a>
+                    </div>
+                </div>
+                <div class="interview-card">
+                    <div class="video-placeholder">▶️</div>
+                    <div class="interview-info">
+                        <h3>Vision for the Future</h3>
+                        <p>Plans for community development and youth empowerment</p>
+                        <a href="#" class="watch-btn">Watch Interview</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="content-box">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>For inquiries, ceremonial requests, or community matters, please reach out through the following channels:</p>
+                <div class="contact-info">
+                    <p>📍 Sabah Osepree Street Nii Boiman</p>
+                    <p>📧 Niiayimensah1@gmail.com</p>
+                    <p>📱 +233 24 493 7313</p>
+                    <p>🕒 Office Hours: Mon-Fri, 9AM-5PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Office of the Chief. All rights reserved.</p>
+        <p>Preserving Our Heritage | Serving Our Community</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation effect
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.update-card, .cultural-item, .interview-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
