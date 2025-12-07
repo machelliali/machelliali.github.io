@@ -18,36 +18,66 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            padding: 1rem 5%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        nav li {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         nav a {
             color: #D4AF37;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
             font-size: 1rem;
+            display: block;
+            padding: 1rem 1.5rem;
         }
 
         nav a:hover {
             color: #FFD700;
+            background: rgba(212, 175, 55, 0.1);
+            padding-left: 2rem;
         }
+
+        /* Sidebar Navigation */
+        nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 250px;
+            background: rgba(0, 0, 0, 0.98);
+            padding: 2rem 0;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover trigger area on left edge */
+        body::before {
+            content: '';
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 100vh;
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        body:hover nav,
+        nav:hover {
+            transform: translateX(0);
+        }
+
 
         /* Hero Section */
         .hero {
@@ -60,6 +90,8 @@
             color: #D4AF37;
             position: relative;
             overflow: hidden;
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .hero::before {
@@ -458,6 +490,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+            }
+
+            nav {
+                width: 200px;
+                padding: 1rem 0;
+            }
+
+            nav a {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            nav a:hover {
+                padding-left: 1.5rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -472,11 +522,6 @@
 
             .about-content {
                 grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
             }
 
             section {
@@ -628,8 +673,16 @@
             <p>Highlight key achievements and ongoing projects that demonstrate the Chief's commitment to community welfare and development.</p>
             
             <div class="project-card">
-                <h3>Project/Initiative Name 1</h3>
-                <p>Description of the project: what it accomplished, who benefited, and its impact on the community. Include dates and key milestones.</p>
+                <h3>National Health Insurance Scheme Registration Program</h3>
+                <p><strong>Overview:</strong> A comprehensive community health initiative designed to ensure that every resident of Nii Boiman has access to quality healthcare through the National Health Insurance Scheme (NHIS).</p>
+                <p><strong>Program Details:</strong> Under the Chief's leadership, a free registration campaign was launched to help community members enroll in NHIS without financial barriers. The program provided:</p>
+                <ul style="margin-left: 2rem; color: #444;">
+                    <li>Free registration services for all residents</li>
+                    <li>Educational sessions on healthcare benefits and coverage</li>
+                    <li>Assistance with documentation and enrollment process</li>
+                    <li>Follow-up support to ensure smooth access to healthcare facilities</li>
+                </ul>
+                <p><strong>Impact:</strong> This initiative has significantly improved healthcare accessibility and affordability for the Nii Boiman community, ensuring that economic constraints do not prevent residents from accessing essential medical services.</p>
             </div>
 
             <div class="project-card">
@@ -648,7 +701,7 @@
                     <iframe src="https://www.youtube.com/embed/v1BJn7iOY0I" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Community Project 1" loading="lazy"></iframe>
                     <div class="video-desc">
                         <h3>Community Project 1</h3>
-                        <p>Brief description of the project shown in this video. <a href="https://youtu.be/v1BJn7iOY0I" target="_blank">Watch on YouTube</a></p>
+                        <p>National Health Insurance Scheme Registration Program. <a href="https://youtu.be/v1BJn7iOY0I" target="_blank">Watch on YouTube</a></p>
                     </div>
                 </div>
 
@@ -727,6 +780,22 @@
     </footer>
 
     <script>
+        // Sidebar collapse on link click or mouse leave
+        const nav = document.querySelector('nav');
+        const navLinks = document.querySelectorAll('nav a');
+
+        // Collapse when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.style.transform = 'translateX(-100%)';
+            });
+        });
+
+        // Collapse when mouse leaves the sidebar
+        nav.addEventListener('mouseleave', function() {
+            nav.style.transform = 'translateX(-100%)';
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
