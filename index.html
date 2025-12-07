@@ -333,6 +333,121 @@
             font-size: 1.1rem;
         }
 
+        /* Installation Section */
+        .installation-video {
+            margin: 2rem 0;
+        }
+
+        .installation-video iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 8px;
+            border: 0;
+        }
+
+        .installation-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .installation-gallery img {
+            width: calc(50% - 0.25rem);
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Achievements Section */
+        .project-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-left: 4px solid #D4AF37;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .project-card h3 {
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .video-item {
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            display: block;
+        }
+
+        .video-fallback {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #000, #D4AF37);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .video-fallback p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .video-desc {
+            padding: 1rem;
+            background: #fff;
+        }
+
+        .video-desc h3 {
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-desc p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .video-desc a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .video-desc a:hover {
+            color: #FFD700;
+        }
+
         /* Footer */
         footer {
             background: #000;
@@ -371,6 +486,14 @@
             .interviews-grid {
                 grid-template-columns: 1fr;
             }
+
+            .installation-gallery img {
+                width: 100%;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -381,6 +504,8 @@
             <li><a href="#about">About</a></li>
             <li><a href="#updates">Updates</a></li>
             <li><a href="#culture">Culture</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#achievements">Achievements</a></li>
             <li><a href="#interviews">Interviews</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -460,6 +585,95 @@
         </div>
     </section>
 
+    <section id="installation">
+        <div class="content-box">
+            <h2>Installation Ceremony</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">A significant moment marking the formal recognition and investiture of the Chief.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="color: #D4AF37; margin-bottom: 1rem;">About the Installation</h3>
+                    <p>Describe the installation ceremony: date, location, attendees (elders, dignitaries, community members), significance, and any traditional rites performed. Include details about the regalia, symbols of office, and oaths taken.</p>
+                    <p style="margin-top: 1rem;">This ceremony represents the formal transfer of authority and responsibility as a custodian of cultural heritage and community welfare.</p>
+                </div>
+
+                <div>
+                    <h3 style="color: #D4AF37; margin-bottom: 1rem;">Video</h3>
+                    <div class="installation-video">
+                        <iframe src="https://www.youtube.com/embed/5jXjmICyo2o" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Installation Ceremony" loading="lazy"></iframe>
+                    </div>
+                    <p style="text-align: center; color: #666; font-size: 0.9rem;"><a href="https://youtu.be/5jXjmICyo2o" target="_blank" style="color: #D4AF37;">Watch on YouTube</a></p>
+                </div>
+            </div>
+
+            <h3 style="color: #D4AF37; margin-bottom: 1rem; margin-top: 2rem;">Photo Gallery</h3>
+            <div class="installation-gallery">
+                <img src="chief-photo.jpg" alt="Installation moment 1">
+                <img src="chief-photo.jpg" alt="Installation moment 2">
+                <img src="chief-photo.jpg" alt="Installation moment 3">
+                <img src="chief-photo.jpg" alt="Installation moment 4">
+            </div>
+
+            <h3 style="color: #D4AF37; margin-bottom: 1rem; margin-top: 2rem;">Historical Significance</h3>
+            <p>Explain the lineage, any previous installations, how this position connects to the community's governance, and any notable traditions or precedents.</p>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="content-box">
+            <h2>Achievements & Community Impact</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">A showcase of the Chief's contributions to community development, cultural preservation, and leadership initiatives.</p>
+
+            <h3 style="color: #D4AF37; margin-bottom: 1rem;">Major Projects & Initiatives</h3>
+            <p>Highlight key achievements and ongoing projects that demonstrate the Chief's commitment to community welfare and development.</p>
+            
+            <div class="project-card">
+                <h3>Project/Initiative Name 1</h3>
+                <p>Description of the project: what it accomplished, who benefited, and its impact on the community. Include dates and key milestones.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Project/Initiative Name 2</h3>
+                <p>Description of the project: what it accomplished, who benefited, and its impact on the community. Include dates and key milestones.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Project/Initiative Name 3</h3>
+                <p>Description of the project: what it accomplished, who benefited, and its impact on the community. Include dates and key milestones.</p>
+            </div>
+
+            <h3 style="color: #D4AF37; margin-bottom: 1rem; margin-top: 2rem;">Video Highlights</h3>
+            <div class="video-grid">
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/v1BJn7iOY0I" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Community Project 1" loading="lazy"></iframe>
+                    <div class="video-desc">
+                        <h3>Community Project 1</h3>
+                        <p>Brief description of the project shown in this video. <a href="https://youtu.be/v1BJn7iOY0I" target="_blank">Watch on YouTube</a></p>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/5UG-z46uUsE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Community Project 2" loading="lazy"></iframe>
+                    <div class="video-desc">
+                        <h3>Community Project 2</h3>
+                        <p>Brief description of the project shown in this video. <a href="https://youtu.be/5UG-z46uUsE" target="_blank">Watch on YouTube</a></p>
+                    </div>
+                </div>
+
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Community Project 3" loading="lazy"></iframe>
+                    <div class="video-desc">
+                        <h3>Community Project 3</h3>
+                        <p>Brief description of the project shown in this video.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: #D4AF37; margin-bottom: 1rem; margin-top: 2rem;">Recognition & Awards</h3>
+            <p>List any honors, awards, or recognitions received in acknowledgment of service to the community and cultural preservation efforts.</p>
+        </div>
+    </section>
+
     <section id="interviews">
         <div class="content-box">
             <h2>Interviews & Media</h2>
@@ -524,6 +738,25 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Handle iframe load errors with fallback display
+        document.querySelectorAll('iframe').forEach(iframe => {
+            iframe.addEventListener('error', function() {
+                const title = this.getAttribute('title') || 'Video';
+                const videoSrc = this.getAttribute('src');
+                const videoId = videoSrc.split('/embed/')[1];
+                const youtubeLink = `https://youtu.be/${videoId}`;
+                
+                const fallback = document.createElement('div');
+                fallback.className = 'video-fallback';
+                fallback.innerHTML = `
+                    <p>📹 Video Unavailable</p>
+                    <p style="font-size: 0.8rem;">This video cannot be embedded directly.</p>
+                    <a href="${youtubeLink}" target="_blank" style="color: #D4AF37; text-decoration: underline; margin-top: 0.5rem;">Watch on YouTube →</a>
+                `;
+                this.parentNode.replaceChild(fallback, this);
             });
         });
 
